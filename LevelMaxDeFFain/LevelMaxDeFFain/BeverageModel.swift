@@ -8,15 +8,15 @@
 import Foundation
 
 enum BeverageCategory: String, CaseIterable {
-    case coffee = "커피"
-    case decaff = "디카페인"
-    case tea = "차"
-    case nonCoffee = "논커피"
-    case chocolate = "초콜릿"
-    case desert = "디저트"
-    case carbonated = "탄산"
-    case refresh = "리프레셔"
-    case etcBev = "기타음료"
+    case coffee = "Coffee"
+    case decaff = "Decaffein"
+    case tea = "Tea"
+    case nonCoffee = "Non coffee"
+    case chocolate = "Chocolate"
+    case desert = "Dessert"
+    case carbonated = "Soft drink"
+    case refresh = "Refresher"
+    case etcBev = "etc."
 
 }
 
@@ -88,13 +88,13 @@ let beverages: [Beverage] = [
     Beverage(name: "아이스 자몽 허니 블랙 티", caffeineContent: 30, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2016/08/[9200000000190]_20160831101044745.jpg")!, bevType: .tea),
     Beverage(name: "아이스 차이 티 라떼", caffeineContent: 70, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/08/[135612]_20150813231332047.jpg")!, bevType: .tea),
     Beverage(name: "차이 티 라떼", caffeineContent: 70, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2016/09/[135608]_20160905102333344.jpg")!, bevType: .tea),
-    Beverage(name: "시그니처 핫 초콜릿", caffeineContent: 15, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/08/[72]_20150813231821724.jpg")!, bevType: .tea),
-    Beverage(name: "아이스 시그니처 초콜릿", caffeineContent: 15, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[110621]_20150723005650081.jpg")!, bevType: .tea),
-    Beverage(name: "플러피 판다 핫 초콜릿", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2019/12/[9200000002594]_20191212184806553.jpg")!, bevType: .tea),
-    Beverage(name: "스팀 우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[17]_20150723005119481.jpg")!, bevType: .tea),
+    Beverage(name: "시그니처 핫 초콜릿", caffeineContent: 15, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/08/[72]_20150813231821724.jpg")!, bevType: .nonCoffee),
+    Beverage(name: "아이스 시그니처 초콜릿", caffeineContent: 15, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[110621]_20150723005650081.jpg")!, bevType: .nonCoffee),
+    Beverage(name: "플러피 판다 핫 초콜릿", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2019/12/[9200000002594]_20191212184806553.jpg")!, bevType: .nonCoffee),
+    Beverage(name: "스팀 우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[17]_20150723005119481.jpg")!, bevType: .etcBev),
     Beverage(name: "아이스 제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001302]_20180418152834948.jpg")!, bevType: .coffee),
-    Beverage(name: "우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[18]_20150723002143131.jpg")!, bevType: .tea),
-    Beverage(name: "제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001301]_20180418152720660.jpg")!, bevType: .coffee),
+    Beverage(name: "우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[18]_20150723002143131.jpg")!, bevType: .etcBev),
+    Beverage(name: "제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001301]_20180418152720660.jpg")!, bevType: .etcBev),
     Beverage(name: "가나 밀크초콜릿", caffeineContent: 14, imageURL: URL(string: "https://sitem.ssgcdn.com/02/67/04/item/1000400046702_i1_750.jpg")!, bevType: .chocolate),
     Beverage(name: "노브랜드 미니 밀크초콜릿", caffeineContent: 28, imageURL: URL(string: "https://sitem.ssgcdn.com/51/87/12/item/1000015128751_i1_750.jpg")!, bevType: .chocolate),
     Beverage(name: "밀카 알프스밀크", caffeineContent: 22, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/408/846/img/8846408_1.jpg?_v=20191223094223")!, bevType: .chocolate),
@@ -106,5 +106,7 @@ let beverages: [Beverage] = [
     Beverage(name: "약콩초콜릿", caffeineContent: 12, imageURL: URL(string: "https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1888087934/B.jpg?998000000")!, bevType: .chocolate),
     Beverage(name: "토블론 스위스 다크 초콜릿", caffeineContent: 20, imageURL: URL(string: "https://thumbnail.10x10.co.kr/webimage/image/basic600/146/B001460497.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false")!, bevType: .chocolate),
     Beverage(name: "코카콜라", caffeineContent: 34, imageURL: URL(string: "https://images.emarteveryday.co.kr/images/app/webapps/evd_web2/share/SKU/mall/04/30/8801094013004_1.png")!, bevType: .carbonated),
-    Beverage(name: "펩시콜라", caffeineContent: 32, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/722/205/img/2205722_1.jpg?_v=20180115153627")!, bevType: .carbonated)
+    Beverage(name: "펩시콜라", caffeineContent: 32, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/722/205/img/2205722_1.jpg?_v=20180115153627")!, bevType: .carbonated),
+    Beverage(name: "딸기 아사이 레모네이드 스타벅스 리프레셔", caffeineContent: 30, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2022/08/[9200000003763]_20220803131322900.jpg")!, bevType: .refresh),
+    Beverage(name: "디카페인 아메리카노", caffeineContent: 10, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937947.jpg")!, bevType: .decaff)
 ]
