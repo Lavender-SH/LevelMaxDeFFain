@@ -46,7 +46,7 @@ struct MainView: View {
                     }
                     
                     // 웨이브 애니메이션을 가운데에 위치시킴
-                    RoundedRectangleWaveView(percent: Int(self.percent), isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
+                    RoundedRectangleWaveView(percent: $caffeineModel.ingestedCaffeine, isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
                         .frame(width: 200, height: 150) // 프레임 크기 조정
                         .padding(.vertical, 20)
                         .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
@@ -78,8 +78,9 @@ struct MainView: View {
                     }
                     
                     // 퍼센트 조정 가능한 슬라이더 조정
-                    Slider(value: self.$percent, in: 0...100)
-                        .padding(.horizontal, 20)
+//                    Slider(value: self.$percent, in: 0...100)
+//                        .padding(.horizontal, 20)
+                    
                 }
                 .padding()
                 .preferredColorScheme(.light)
@@ -161,7 +162,7 @@ struct Wave: Shape {
 struct RoundedRectangleWaveView: View {
     
     @State private var waveOffset = Angle(degrees: 0)
-    let percent: Int
+    @Binding var percent: Int
     @Binding var isFlipped: Bool
     @Binding var timerValue: TimeInterval
     @Binding var isTimerRunning: Bool
@@ -186,7 +187,7 @@ struct RoundedRectangleWaveView: View {
                     .overlay(
                         Wave(
                             offset: Angle(degrees: self.waveOffset.degrees),
-                            percent: Double(percent) / 100
+                            percent: Double(percent) / 200
                         )
                         .fill(waveColor(for: percent))
                         .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
@@ -199,7 +200,7 @@ struct RoundedRectangleWaveView: View {
                     .overlay(
                         Wave(
                             offset: Angle(degrees: self.waveOffset.degrees),
-                            percent: Double(percent) / 100
+                            percent: Double(percent) / 200
                         )
                         .fill(waveColor(for: percent).opacity(0.5))
                         .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
@@ -224,14 +225,14 @@ struct RoundedRectangleWaveView: View {
     // 퍼센테이지에 따라 색이 달라지도록 설정
     private func waveColor(for percent: Int) -> Color {
         switch percent {
-        case 1..<33:
+        case 1..<66:
             return Color.my00B3FF
-        case 33..<66:
+        case 66..<132:
             return Color.myFFEA30
-        case 66...100:
+        case 132...200:
             return Color.myF24E4E
         default:
-            return Color.clear // 기본값
+            return Color.myF24E4E // 기본값
         }
     }
     private func timeString(from timeInterval: TimeInterval) -> String {
