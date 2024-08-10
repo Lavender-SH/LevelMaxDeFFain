@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct OnboardingWeek: View {
-    @State private var selectedWeek: Int = 1
-    @State private var isPickerVisible: Bool = false
+    @EnvironmentObject var dataModel: SharedDataModel
+    @State var isPickerVisible: Bool = false
     
     var body: some View {
         VStack {
@@ -24,7 +24,7 @@ struct OnboardingWeek: View {
                             .padding(.top, 5)
                             .foregroundStyle(Color("온보딩 버튼"))
                         HStack {
-                            Text(String(format: "%02d", selectedWeek))
+                            Text(String(format: "%02d", dataModel.selectedWeek))
                                 .font(.system(size: 60, weight: .bold))
                                 .foregroundStyle(Color("온보딩 버튼"))
                                 .onTapGesture {
@@ -45,7 +45,7 @@ struct OnboardingWeek: View {
             
             // Picker가 선택된 상태일 때만 표시
             if isPickerVisible {
-                Picker("Select Week", selection: $selectedWeek) {
+                Picker("Select Week", selection: $dataModel.selectedWeek) {
                     ForEach(1..<41) { week in
                         Text("\(week)").tag(week)
                     }
@@ -57,7 +57,7 @@ struct OnboardingWeek: View {
             }
             
             Spacer()
-            NavigationLink(destination: OnboardingLottie(selectedWeek: selectedWeek)) {
+            NavigationLink(destination: OnboardingLottie(selectedWeek: dataModel.selectedWeek)) {
                 Text("입력 완료")
                     .padding()
                     .font(.system(size: 20).bold())
@@ -74,7 +74,7 @@ struct OnboardingWeek: View {
     }
 }
 
-#Preview {
-    OnboardingWeek()
-}
+//#Preview {
+//    //OnboardingWeek(selectedWeek: selectedWeek.selectedWeek)
+//}
 

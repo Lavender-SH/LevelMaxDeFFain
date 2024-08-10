@@ -1,9 +1,11 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var caffeineModel: SharedDataModel
+    @EnvironmentObject var sharedData: SharedDataModel
     @State var percent = 50.0  // 슬라이더 값 퍼센트 저장
     @State var weeks: Int // 임신 주차
-    @State var injestedCaffeine: Int = 200 // 섭취한 카페인
+    @State var injestedCaffeine: Int = 0 // 섭취한 카페인
     let comments = ["오늘 하루 카페인을 섭취하셨나요?", "카페인을 조금 섭취하셨네요", "주의해주세요! 벌써 반이나 찼어요.", "위험해요! 권장 섭취량에 가까워지고 있어요!"]
     
     @State private var isFlipped = false // flip 상태
@@ -11,75 +13,77 @@ struct MainView: View {
     @State private var isTimerRunning = false
     
     var body: some View {
-        ZStack {
-            // 카페인 섭취량에 따라 원의 색과 채워지는 정도를 결정하는 CircleView
-            CircleView(injestedCaffeine: $injestedCaffeine)
-                .frame(width: 300, height: 300)
-                .padding(.bottom, 40)
-            
-            VStack {
-                HStack{
-                    Spacer()
-                    Text("임신 \(weeks)주차")
+        NavigationStack {
+            ZStack {
+                // 카페인 섭취량에 따라 원의 색과 채워지는 정도를 결정하는 CircleView
+                CircleView(injestedCaffeine: $caffeineModel.ingestedCaffeine)
+                    .frame(width: 300, height: 300)
+                    .padding(.bottom, 40)
+                
+                VStack {
+                    HStack{
+                        Spacer()
+                        Text("임신 \(sharedData.selectedWeek)주차")
+                            .foregroundStyle(Color.black)
+                            .font(.system(size: 17))
+                            .padding(.bottom, 30)
+                            .padding(.trailing)
+                            .fontWeight(.semibold)
+                        
+                    }
+                    Text("오늘의 카페인 섭취")
                         .foregroundStyle(Color.black)
                         .font(.system(size: 17))
-                        .padding(.bottom, 30)
-                        .padding(.trailing)
-                        .fontWeight(.semibold)
                     
-                }
-                Text("오늘의 카페인 섭취")
-                    .foregroundStyle(Color.black)
-                    .font(.system(size: 17))
-                
-                HStack(alignment: .bottom) {
-                    Text("\(injestedCaffeine)")
-                        .foregroundStyle(Color("수치"))
-                        .font(.system(size: 45).bold())
-                    Text("/ 200mg")
-                        .foregroundStyle(Color.black)
-                        .font(.system(size: 14))
-                        .padding(.bottom, 12)
-                }
-                
-                // 웨이브 애니메이션을 가운데에 위치시킴
-                RoundedRectangleWaveView(percent: Int(self.percent), isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
-                    .frame(width: 200, height: 150) // 프레임 크기 조정
-                    .padding(.vertical, 20)
-                    .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
-                //                .alignmentGuide(.center) { d in d[.center] } // 중앙 정렬
-                    .modifier(CenterModifier()) // 중앙 정렬을 위한 커스텀 Modifier 추가
-                    .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            isFlipped.toggle()
-                        }
-                        if isFlipped && !isTimerRunning {
-                            startTimer()
-                        }
+                    HStack(alignment: .bottom) {
+                        Text("\(caffeineModel.ingestedCaffeine)")
+                            .foregroundStyle(Color("수치"))
+                            .font(.system(size: 45).bold())
+                        Text("/ 200mg")
+                            .foregroundStyle(Color.black)
+                            .font(.system(size: 14))
+                            .padding(.bottom, 12)
                     }
-                
-                Text(determineComment(for: injestedCaffeine))
-                    .foregroundColor(Color("온보딩 버튼"))
-                    .font(.system(size: 17))
-                    .padding(.bottom, 30)
-                
-                NavigationLink(destination: OnboardingWeek()) {
-                    Text("카페인 기록하기")
-                        .padding()
-                        .font(.system(size: 20).bold())
-                        .frame(width: 300, height: 50)
-                        .foregroundColor(.white)
-                        .background(Color("온보딩 버튼"))
-                        .clipShape(RoundedRectangle(cornerRadius: 30))
-                        .padding()
+                    
+                    // 웨이브 애니메이션을 가운데에 위치시킴
+                    RoundedRectangleWaveView(percent: Int(self.percent), isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
+                        .frame(width: 200, height: 150) // 프레임 크기 조정
+                        .padding(.vertical, 20)
+                        .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
+                    //                .alignmentGuide(.center) { d in d[.center] } // 중앙 정렬
+                        .modifier(CenterModifier()) // 중앙 정렬을 위한 커스텀 Modifier 추가
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isFlipped.toggle()
+                            }
+                            if isFlipped && !isTimerRunning {
+                                startTimer()
+                            }
+                        }
+                    
+                    Text(determineComment(for: injestedCaffeine))
+                        .foregroundColor(Color("온보딩 버튼"))
+                        .font(.system(size: 17))
+                        .padding(.bottom, 30)
+                    
+                    NavigationLink(destination: MenuListView()) {
+                        Text("카페인 기록하기")
+                            .padding()
+                            .font(.system(size: 20).bold())
+                            .frame(width: 300, height: 50)
+                            .foregroundColor(.white)
+                            .background(Color("온보딩 버튼"))
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .padding()
+                    }
+                    
+                    // 퍼센트 조정 가능한 슬라이더 조정
+                    Slider(value: self.$percent, in: 0...100)
+                        .padding(.horizontal, 20)
                 }
-                
-                // 퍼센트 조정 가능한 슬라이더 조정
-                Slider(value: self.$percent, in: 0...100)
-                    .padding(.horizontal, 20)
+                .padding()
+                .preferredColorScheme(.light)
             }
-            .padding()
-            .preferredColorScheme(.light)
         }
     }
     
