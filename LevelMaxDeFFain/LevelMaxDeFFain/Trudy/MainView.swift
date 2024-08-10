@@ -3,14 +3,14 @@ import SwiftUI
 struct MainView: View {
     @State var percent = 50.0  // 슬라이더 값 퍼센트 저장
     @State var weeks: Int // 임신 주차
-    @State var injestedCaffeine: Int // 섭취한 카페인
+    @State var injestedCaffeine: Int = 0 // 섭취한 카페인
     
     
     var body: some View {
         VStack {
             HStack{
                 Spacer()
-                Text("임신 9주차")
+                Text("임신 \(weeks)주차")
                     .foregroundStyle(Color.black)
                     .font(.system(size: 17))
                     .padding(.bottom, 30)
@@ -22,7 +22,7 @@ struct MainView: View {
                 .foregroundStyle(Color.black)
                 .font(.system(size: 17))
             HStack(alignment: .bottom) {
-                Text("100")
+                Text("\(injestedCaffeine)")
                     .foregroundStyle(Color.black)
                     .font(.system(size: 45))
                 Text("/ 200mg")

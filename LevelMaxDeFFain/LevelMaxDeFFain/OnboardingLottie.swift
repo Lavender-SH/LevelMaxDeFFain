@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OnboardingLottie: View {
     @State private var isActive = false
-
+    var selectedWeek: Int
+    
     var body: some View {
         VStack {
             Spacer()
@@ -27,20 +28,23 @@ struct OnboardingLottie: View {
                 self.isActive = true
             }
         }
-        .fullScreenCover(isPresented: $isActive, content: HomeView.init)
+        .fullScreenCover(isPresented: $isActive) {
+                    MainView(weeks: selectedWeek, injestedCaffeine: 0)
+                }
     }
 }
 
-struct HomeView: View {
-    var body: some View {
-        Text("Welcome to Home!")
-    }
-}
+//struct HomeView: View {
+//    var body: some View {
+//        Text("Welcome to Home!")
+//    }
+//}
 
 // Preview
 struct OnboardingLottie_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingLottie()
+        OnboardingLottie(selectedWeek: 9)
+
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingWeek: View {
-    @State private var selectedWeek: Int = 9
+    @State private var selectedWeek: Int = 1
     @State private var isPickerVisible: Bool = false
     
     var body: some View {
@@ -57,7 +57,7 @@ struct OnboardingWeek: View {
             }
             
             Spacer()
-            NavigationLink(destination: OnboardingLottie()) {
+            NavigationLink(destination: OnboardingLottie(selectedWeek: selectedWeek)) {
                 Text("입력 완료")
                     .padding()
                     .font(.system(size: 20).bold())
