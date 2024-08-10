@@ -3,10 +3,27 @@ import SwiftUI
 struct MenuListView: View {
     @EnvironmentObject var caffeineModel: SharedDataModel
     @EnvironmentObject var sharedData: SharedDataModel
+    
     @State private var selectedCategory: BeverageCategory? = nil
     @State private var selectedMenu = beverages
     @State private var showSheet = false
     @State private var tappedMenu: Beverage = beverages[0]
+
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+        var backButton : some View {
+            Button{
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.my581919)
+                    Text("Back")
+                        .foregroundColor(.my581919)
+                }
+            }
+        }
 
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
@@ -138,8 +155,12 @@ struct MenuListView: View {
             }
             .background(Color(red: 0.98, green: 0.97, blue: 0.95))
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
 
     }
+
+
 
 
     private func filterBeverages(by category: BeverageCategory) -> [Beverage] {

@@ -20,6 +20,7 @@
 		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
 		BD0D5DB72C67B88D0022D010 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB62C67B88D0022D010 /* MenuListView.swift */; };
 		BD0D5DB92C67B8970022D010 /* BeverageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB82C67B8960022D010 /* BeverageModel.swift */; };
+		BDBED7582C68128000D8C543 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBED7572C68128000D8C543 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		618274212C678F200074A435 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BD0D5DB62C67B88D0022D010 /* MenuListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		BD0D5DB82C67B8960022D010 /* BeverageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageModel.swift; sourceTree = "<group>"; };
+		BDBED7572C68128000D8C543 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				02ABBCD92C678C6F00A03706 /* LottieView.swift */,
 				BD0D5DB82C67B8960022D010 /* BeverageModel.swift */,
 				BD0D5DB62C67B88D0022D010 /* MenuListView.swift */,
+				BDBED7572C68128000D8C543 /* ProfileView.swift */,
 				618274202C678EBD0074A435 /* Trudy */,
 				02ABBCCB2C678C4100A03706 /* Assets.xcassets */,
 				02ABBCDB2C678C7B00A03706 /* 원두.json */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0D5DB92C67B8970022D010 /* BeverageModel.swift in Sources */,
+				BDBED7582C68128000D8C543 /* ProfileView.swift in Sources */,
 				02ABBCCA2C678C4000A03706 /* ContentView.swift in Sources */,
 				BD0D5DB72C67B88D0022D010 /* MenuListView.swift in Sources */,
 				618274222C678F200074A435 /* MainView.swift in Sources */,
