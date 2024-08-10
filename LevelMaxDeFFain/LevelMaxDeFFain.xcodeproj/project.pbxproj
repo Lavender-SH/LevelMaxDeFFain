@@ -15,12 +15,7 @@
 		02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */; };
 		02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD92C678C6F00A03706 /* LottieView.swift */; };
 		02ABBCDC2C678C7B00A03706 /* 원두.json in Resources */ = {isa = PBXBuildFile; fileRef = 02ABBCDB2C678C7B00A03706 /* 원두.json */; };
-<<<<<<< HEAD
-		02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCDE2C678CC300A03706 /* Lottie */; };
-		02ABBCE22C67B73900A03706 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCE12C67B73900A03706 /* TimerView.swift */; };
-		02ABBCE52C67B82700A03706 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCE42C67B82700A03706 /* KDCircularProgress */; };
-=======
->>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
+
 		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
 		BD0D5DB72C67B88D0022D010 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB62C67B88D0022D010 /* MenuListView.swift */; };
 		BD0D5DB92C67B8970022D010 /* BeverageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB82C67B8960022D010 /* BeverageModel.swift */; };
