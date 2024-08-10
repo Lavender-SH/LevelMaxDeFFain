@@ -4,8 +4,7 @@ struct MainView: View {
     @State var percent = 50.0  // 슬라이더 값 퍼센트 저장
     @State var weeks: Int // 임신 주차
     @State var injestedCaffeine: Int = 0 // 섭취한 카페인
-    
-    
+
     var body: some View {
         VStack {
             HStack{
@@ -121,7 +120,24 @@ struct RoundedRectangleWaveView: View {
                     .fill(waveColor(for: percent))
                     .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
                 )
-                .frame(width: 200, height: 150) // 프레임 크기를 설정
+                .frame(width: 116, height: 90) // 프레임 크기를 설정
+            //연한 원
+            RoundedRectangle(cornerRadius: 150.0)
+                .fill(Color.clear) // 배경색 투명
+                .overlay(
+                    Wave(
+                        offset: Angle(degrees: self.waveOffset.degrees),
+                        percent: Double(percent) / 100
+                    )
+                    .fill(waveColor(for: percent).opacity(0.5))
+                    .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
+                )
+                .frame(width: 116, height: 90) // 프레임 크기를 설정
+                .padding(.bottom, 15)
+            Image("cup")
+                .resizable()
+                .frame(width: 150, height: 100)
+                .padding(.leading, 24)
         }
         .aspectRatio(contentMode: .fit)
         .onAppear {
@@ -134,26 +150,12 @@ struct RoundedRectangleWaveView: View {
     // 퍼센테이지에 따라 색이 달라지도록 설정
     private func waveColor(for percent: Int) -> Color {
         switch percent {
-        case 0..<10:
-            return Color.red
-        case 10..<20:
-            return Color.orange
-        case 20..<30:
-            return Color.yellow
-        case 30..<40:
-            return Color.green
-        case 40..<50:
-            return Color.blue
-        case 50..<60:
-            return Color.purple
-        case 60..<70:
-            return Color.pink
-        case 70..<80:
-            return Color.gray
-        case 80..<90:
-            return Color.black
-        case 90...100:
-            return Color.teal
+        case 1..<33:
+            return Color.my00B3FF
+        case 33..<66:
+            return Color.myFFEA30
+        case 66...100:
+            return Color.myF24E4E
         default:
             return Color.clear // 기본값
         }
