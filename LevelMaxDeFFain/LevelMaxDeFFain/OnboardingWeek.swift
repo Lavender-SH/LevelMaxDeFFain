@@ -17,10 +17,10 @@ struct OnboardingWeek: View {
             HStack {
                 VStack {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("임신 주수")
+                        Text("Gestational Age")
                             .font(.largeTitle.bold())
                             .foregroundStyle(Color("온보딩 버튼"))
-                        Text("현재 임신 몇 주 차이신가요?")
+                        Text("How far along are you?")
                             .padding(.top, 5)
                             .foregroundStyle(Color("온보딩 버튼"))
                         HStack {
@@ -32,7 +32,7 @@ struct OnboardingWeek: View {
                                         isPickerVisible.toggle()
                                     }
                                 }
-                            Text("주차")
+                            Text("Weeks")
                                 .padding(.top, 25)
                                 .foregroundStyle(Color("온보딩 버튼"))
                         }
@@ -58,7 +58,7 @@ struct OnboardingWeek: View {
             
             Spacer()
             NavigationLink(destination: OnboardingLottie(selectedWeek: dataModel.selectedWeek)) {
-                Text("입력 완료")
+                Text("Complete")
                     .padding()
                     .font(.system(size: 20).bold())
                     .frame(width: 300, height: 50)

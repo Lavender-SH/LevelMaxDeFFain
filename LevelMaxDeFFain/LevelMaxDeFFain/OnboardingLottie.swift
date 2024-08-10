@@ -16,7 +16,7 @@ struct OnboardingLottie: View {
             Spacer()
             LottieAnimationViewRepresentable()
                 .frame(width: 300, height: 300) // Adjusted height for better visibility
-            Text("임산부의 하루 카페인 섭취 권장량은\n200mg입니다.")
+            Text("The recommended daily caffeine intake\nfor pregnant women is\nIt's 200 milligrams")
                 .font(.system(size: 17))
                 .padding(.top, 20)
                 .multilineTextAlignment(.center)

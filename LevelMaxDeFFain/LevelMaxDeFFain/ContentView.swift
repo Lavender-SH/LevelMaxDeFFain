@@ -19,7 +19,7 @@ struct ContentView: View {
                 Spacer()
 
                 NavigationLink(destination: OnboardingWeek()) {
-                    Text("입력 완료")
+                    Text("Start")
                         .padding()
                         .font(.system(size: 20).bold())
                         .frame(width: 300, height: 50)

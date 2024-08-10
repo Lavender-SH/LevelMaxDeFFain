@@ -19,7 +19,7 @@ struct MenuListView: View {
                     Image(systemName: "chevron.left")
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(.my581919)
-                    Text("Back")
+                    Text("")
                         .foregroundColor(.my581919)
                 }
             }
@@ -126,7 +126,8 @@ struct MenuListView: View {
                                                 Text("\(beverage.caffeineContent)")
                                                     .font(.system(size: 20, weight: .semibold))
                                                     .multilineTextAlignment(.trailing)
-                                                    .foregroundColor(Color(red: 0.35, green: 0.1, blue: 0.1))
+                                                    .foregroundColor(.white)
+//                                                    .foregroundColor(Color(red: 0.35, green: 0.1, blue: 0.1))
                                                     .padding(10)
                                             }
                                         }

@@ -6,7 +6,7 @@ struct MainView: View {
     @State var percent = 50.0  // 슬라이더 값 퍼센트 저장
     @State var weeks: Int // 임신 주차
     @State var injestedCaffeine: Int = 0 // 섭취한 카페인
-    let comments = ["오늘 하루 카페인을 섭취하셨나요?", "카페인을 조금 섭취하셨네요", "주의해주세요! 벌써 반이나 찼어요.", "위험해요! 권장 섭취량에 가까워지고 있어요!"]
+    let comments = ["Did you have caffeine today?", "You've had a little caffeine", "Little careful!\nIt's already half full", "It's Dangerous!\nYou're getting closer to recommended intake!"]
     
     @State private var isFlipped = false // flip 상태
     @State private var timerValue: TimeInterval = 5 * 3600 // 5시간 (초 단위)
@@ -23,7 +23,7 @@ struct MainView: View {
                 VStack {
                     HStack{
                         Spacer()
-                        Text("임신 \(sharedData.selectedWeek)주차")
+                        Text("\(sharedData.selectedWeek) Weeks")
                             .foregroundStyle(Color.black)
                             .font(.system(size: 17))
                             .padding(.bottom, 30)
@@ -31,7 +31,7 @@ struct MainView: View {
                             .fontWeight(.semibold)
                         
                     }
-                    Text("오늘의 카페인 섭취")
+                    Text("Today's caffeine inatake(mg)")
                         .foregroundStyle(Color.black)
                         .font(.system(size: 17))
                     
@@ -67,7 +67,7 @@ struct MainView: View {
                         .padding(.bottom, 30)
                     
                     NavigationLink(destination: MenuListView()) {
-                        Text("카페인 기록하기")
+                        Text("Recording Caffeine")
                             .padding()
                             .font(.system(size: 20).bold())
                             .frame(width: 300, height: 50)
@@ -171,7 +171,7 @@ struct RoundedRectangleWaveView: View {
         ZStack {
             if isFlipped {
                 VStack {
-                    Text("카페인을\n태우기 위해 필요한 시간")
+                    Text("Caffeine\nTime required to export")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 17))
                         .padding(.bottom, 10)
