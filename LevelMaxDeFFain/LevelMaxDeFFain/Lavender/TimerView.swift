@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KDCircularProgress
 
 struct TimerView: View {
     var body: some View {

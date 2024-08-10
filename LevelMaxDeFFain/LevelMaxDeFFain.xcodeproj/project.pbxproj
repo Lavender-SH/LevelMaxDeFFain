@@ -16,6 +16,8 @@
 		02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD92C678C6F00A03706 /* LottieView.swift */; };
 		02ABBCDC2C678C7B00A03706 /* 원두.json in Resources */ = {isa = PBXBuildFile; fileRef = 02ABBCDB2C678C7B00A03706 /* 원두.json */; };
 		02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCDE2C678CC300A03706 /* Lottie */; };
+		02ABBCE22C67B73900A03706 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCE12C67B73900A03706 /* TimerView.swift */; };
+		02ABBCE52C67B82700A03706 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCE42C67B82700A03706 /* KDCircularProgress */; };
 		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,7 @@
 		02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLottie.swift; sourceTree = "<group>"; };
 		02ABBCD92C678C6F00A03706 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		02ABBCDB2C678C7B00A03706 /* 원두.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "원두.json"; sourceTree = "<group>"; };
+		02ABBCE12C67B73900A03706 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		618274212C678F200074A435 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */,
+				02ABBCE52C67B82700A03706 /* KDCircularProgress in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 				02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */,
 				02ABBCD92C678C6F00A03706 /* LottieView.swift */,
 				618274202C678EBD0074A435 /* Trudy */,
+				02ABBCE02C67B60A00A03706 /* Lavender */,
 				02ABBCCB2C678C4100A03706 /* Assets.xcassets */,
 				02ABBCDB2C678C7B00A03706 /* 원두.json */,
 				02ABBCCD2C678C4100A03706 /* Preview Content */,
@@ -82,6 +87,14 @@
 				02ABBCCE2C678C4100A03706 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		02ABBCE02C67B60A00A03706 /* Lavender */ = {
+			isa = PBXGroup;
+			children = (
+				02ABBCE12C67B73900A03706 /* TimerView.swift */,
+			);
+			path = Lavender;
 			sourceTree = "<group>";
 		};
 		618274202C678EBD0074A435 /* Trudy */ = {
@@ -110,6 +123,7 @@
 			name = LevelMaxDeFFain;
 			packageProductDependencies = (
 				02ABBCDE2C678CC300A03706 /* Lottie */,
+				02ABBCE42C67B82700A03706 /* KDCircularProgress */,
 			);
 			productName = LevelMaxDeFFain;
 			productReference = 02ABBCC42C678C4000A03706 /* LevelMaxDeFFain.app */;
@@ -141,6 +155,7 @@
 			mainGroup = 02ABBCBB2C678C4000A03706;
 			packageReferences = (
 				02ABBCDD2C678CC300A03706 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				02ABBCE32C67B82700A03706 /* XCRemoteSwiftPackageReference "KDCircularProgress" */,
 			);
 			productRefGroup = 02ABBCC52C678C4000A03706 /* Products */;
 			projectDirPath = "";
@@ -169,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02ABBCE22C67B73900A03706 /* TimerView.swift in Sources */,
 				02ABBCCA2C678C4000A03706 /* ContentView.swift in Sources */,
 				618274222C678F200074A435 /* MainView.swift in Sources */,
 				02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */,
@@ -390,6 +406,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		02ABBCE32C67B82700A03706 /* XCRemoteSwiftPackageReference "KDCircularProgress" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kaandedeoglu/KDCircularProgress.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -397,6 +421,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02ABBCDD2C678CC300A03706 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		02ABBCE42C67B82700A03706 /* KDCircularProgress */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02ABBCE32C67B82700A03706 /* XCRemoteSwiftPackageReference "KDCircularProgress" */;
+			productName = KDCircularProgress;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
