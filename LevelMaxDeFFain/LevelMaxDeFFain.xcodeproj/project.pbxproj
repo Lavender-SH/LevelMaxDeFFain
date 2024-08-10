@@ -17,6 +17,7 @@
 		02ABBCDC2C678C7B00A03706 /* 원두.json in Resources */ = {isa = PBXBuildFile; fileRef = 02ABBCDB2C678C7B00A03706 /* 원두.json */; };
 		02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCDE2C678CC300A03706 /* Lottie */; };
 		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
+		618274242C67CC0B0074A435 /* HeartRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274232C67CC0B0074A435 /* HeartRateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		02ABBCD92C678C6F00A03706 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		02ABBCDB2C678C7B00A03706 /* 원두.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "원두.json"; sourceTree = "<group>"; };
 		618274212C678F200074A435 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		618274232C67CC0B0074A435 /* HeartRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				618274212C678F200074A435 /* MainView.swift */,
+				618274232C67CC0B0074A435 /* HeartRateView.swift */,
 			);
 			path = Trudy;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				02ABBCCA2C678C4000A03706 /* ContentView.swift in Sources */,
 				618274222C678F200074A435 /* MainView.swift in Sources */,
+				618274242C67CC0B0074A435 /* HeartRateView.swift in Sources */,
 				02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */,
 				02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */,
 				02ABBCD62C678C6300A03706 /* OnboardingWeek.swift in Sources */,
