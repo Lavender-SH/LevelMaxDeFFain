@@ -1,15 +1,6 @@
 {
-  "originHash" : "e8757176d825dc1dc72f6be839e2c23558ea436bb47ee996a5a1b12995ade456",
+  "originHash" : "0271592b24e5dc1185a09e3f2d980d55521827815d397c9bce8e63d502a51e84",
   "pins" : [
-    {
-      "identity" : "kdcircularprogress",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kaandedeoglu/KDCircularProgress.git",
-      "state" : {
-        "revision" : "a0f30e0605b7ac91ac1b243efd9914b3fd592ad3",
-        "version" : "1.5.4"
-      }
-    },
     {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",
