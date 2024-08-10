@@ -94,5 +94,17 @@ let beverages: [Beverage] = [
     Beverage(name: "스팀 우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[17]_20150723005119481.jpg")!, bevType: .tea),
     Beverage(name: "아이스 제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001302]_20180418152834948.jpg")!, bevType: .coffee),
     Beverage(name: "우유", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2015/07/[18]_20150723002143131.jpg")!, bevType: .tea),
-    Beverage(name: "제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001301]_20180418152720660.jpg")!, bevType: .coffee)
+    Beverage(name: "제주 까망 라떼", caffeineContent: 0, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2018/04/[9200000001301]_20180418152720660.jpg")!, bevType: .coffee),
+    Beverage(name: "가나 밀크초콜릿", caffeineContent: 14, imageURL: URL(string: "https://sitem.ssgcdn.com/02/67/04/item/1000400046702_i1_750.jpg")!, bevType: .chocolate),
+    Beverage(name: "노브랜드 미니 밀크초콜릿", caffeineContent: 28, imageURL: URL(string: "https://sitem.ssgcdn.com/51/87/12/item/1000015128751_i1_750.jpg")!, bevType: .chocolate),
+    Beverage(name: "밀카 알프스밀크", caffeineContent: 22, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/408/846/img/8846408_1.jpg?_v=20191223094223")!, bevType: .chocolate),
+    Beverage(name: "스타벅스 밀크 초콜릿", caffeineContent: 10, imageURL: URL(string: "https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5650003322]_20210421154642682.jpg")!, bevType: .chocolate),
+    Beverage(name: "토블론 스위스 밀크 초콜릿", caffeineContent: 16, imageURL: URL(string: "https://thumbnail.10x10.co.kr/webimage/image/basic600/146/B001461309.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false")!, bevType: .chocolate),
+    Beverage(name: "허쉬 밀크초콜릿", caffeineContent: 35, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/295/463/img/4463295_1.jpg?_v=20180517174543")!, bevType: .chocolate),
+    Beverage(name: "노브랜드 다크초콜릿", caffeineContent: 11, imageURL: URL(string: "https://sitem.ssgcdn.com/06/17/50/item/1000532501706_i1_750.jpg")!, bevType: .chocolate),
+    Beverage(name: "마켓오초콜릿 오리지널", caffeineContent: 9, imageURL: URL(string: "https://static.megamart.com/product/image/1199/11997894/11997894_1_960.jpg")!, bevType: .chocolate),
+    Beverage(name: "약콩초콜릿", caffeineContent: 12, imageURL: URL(string: "https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1888087934/B.jpg?998000000")!, bevType: .chocolate),
+    Beverage(name: "토블론 스위스 다크 초콜릿", caffeineContent: 20, imageURL: URL(string: "https://thumbnail.10x10.co.kr/webimage/image/basic600/146/B001460497.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false")!, bevType: .chocolate),
+    Beverage(name: "코카콜라", caffeineContent: 34, imageURL: URL(string: "https://images.emarteveryday.co.kr/images/app/webapps/evd_web2/share/SKU/mall/04/30/8801094013004_1.png")!, bevType: .carbonated),
+    Beverage(name: "펩시콜라", caffeineContent: 32, imageURL: URL(string: "https://img.danawa.com/prod_img/500000/722/205/img/2205722_1.jpg?_v=20180115153627")!, bevType: .carbonated)
 ]
