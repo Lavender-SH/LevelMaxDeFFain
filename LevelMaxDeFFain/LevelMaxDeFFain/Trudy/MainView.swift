@@ -3,57 +3,108 @@ import SwiftUI
 struct MainView: View {
     @State var percent = 50.0  // 슬라이더 값 퍼센트 저장
     @State var weeks: Int // 임신 주차
-    @State var injestedCaffeine: Int = 0 // 섭취한 카페인
-
+    @State var injestedCaffeine: Int = 200 // 섭취한 카페인
+    let comments = ["오늘 하루 카페인을 섭취하셨나요?", "카페인을 조금 섭취하셨네요", "주의해주세요! 벌써 반이나 찼어요.", "위험해요! 권장 섭취량에 가까워지고 있어요!"]
+    
+    @State private var isFlipped = false // flip 상태
+    @State private var timerValue: TimeInterval = 5 * 3600 // 5시간 (초 단위)
+    @State private var isTimerRunning = false
+    
     var body: some View {
-        VStack {
-            HStack{
-                Spacer()
-                Text("임신 \(weeks)주차")
+        ZStack {
+            // 카페인 섭취량에 따라 원의 색과 채워지는 정도를 결정하는 CircleView
+            CircleView(injestedCaffeine: $injestedCaffeine)
+                .frame(width: 300, height: 300)
+                .padding(.bottom, 40)
+            
+            VStack {
+                HStack{
+                    Spacer()
+                    Text("임신 \(weeks)주차")
+                        .foregroundStyle(Color.black)
+                        .font(.system(size: 17))
+                        .padding(.bottom, 30)
+                        .padding(.trailing)
+                        .fontWeight(.semibold)
+                    
+                }
+                Text("오늘의 카페인 섭취")
                     .foregroundStyle(Color.black)
                     .font(.system(size: 17))
-                    .padding(.bottom, 30)
-                    .padding(.trailing)
-                    .fontWeight(.semibold)
                 
+                HStack(alignment: .bottom) {
+                    Text("\(injestedCaffeine)")
+                        .foregroundStyle(Color("수치"))
+                        .font(.system(size: 45).bold())
+                    Text("/ 200mg")
+                        .foregroundStyle(Color.black)
+                        .font(.system(size: 14))
+                        .padding(.bottom, 12)
+                }
+                
+                // 웨이브 애니메이션을 가운데에 위치시킴
+                RoundedRectangleWaveView(percent: Int(self.percent), isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
+                    .frame(width: 200, height: 150) // 프레임 크기 조정
+                    .padding(.vertical, 20)
+                    .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
+                //                .alignmentGuide(.center) { d in d[.center] } // 중앙 정렬
+                    .modifier(CenterModifier()) // 중앙 정렬을 위한 커스텀 Modifier 추가
+                    .onTapGesture {
+                        withAnimation(.easeInOut) {
+                            isFlipped.toggle()
+                        }
+                        if isFlipped && !isTimerRunning {
+                            startTimer()
+                        }
+                    }
+                
+                Text(determineComment(for: injestedCaffeine))
+                    .foregroundColor(Color("온보딩 버튼"))
+                    .font(.system(size: 17))
+                    .padding(.bottom, 30)
+                
+                NavigationLink(destination: OnboardingWeek()) {
+                    Text("카페인 기록하기")
+                        .padding()
+                        .font(.system(size: 20).bold())
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(.white)
+                        .background(Color("온보딩 버튼"))
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .padding()
+                }
+                
+                // 퍼센트 조정 가능한 슬라이더 조정
+                Slider(value: self.$percent, in: 0...100)
+                    .padding(.horizontal, 20)
             }
-            Text("오늘의 카페인 섭취")
-                .foregroundStyle(Color.black)
-                .font(.system(size: 17))
-            HStack(alignment: .bottom) {
-                Text("\(injestedCaffeine)")
-                    .foregroundStyle(Color.black)
-                    .font(.system(size: 45))
-                Text("/ 200mg")
-                    .foregroundStyle(Color.black)
-                    .font(.system(size: 14))
-                    .padding(.bottom, 12)
-            }
-            
-            // 웨이브 애니메이션을 가운데에 위치시킴
-            RoundedRectangleWaveView(percent: Int(self.percent))
-                .frame(width: 200, height: 150) // 프레임 크기 조정
-                .padding(.vertical, 20)
-                .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
-            //                .alignmentGuide(.center) { d in d[.center] } // 중앙 정렬
-                .modifier(CenterModifier()) // 중앙 정렬을 위한 커스텀 Modifier 추가
-            Button(action: {
-                print("기록되어써염")
-                //받은 카페인 함량/200 만큼의 비율이 증가되도록 해야한다.
-            }, label: {
-                Text("카페인 기록하기")
-            })
-            .frame(width: 232, height: 55)
-            .foregroundStyle(Color.black)
-            .background(Color.blue.opacity(0.5))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            // 퍼센트 조정 가능한 슬라이더 조정
-            Slider(value: self.$percent, in: 0...100)
-                .padding(.horizontal, 20)
+            .padding()
+            .preferredColorScheme(.light)
         }
-        .padding()
-        .preferredColorScheme(.light)
+    }
+    
+    private func startTimer() {
+        isTimerRunning = true
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if timerValue > 0 {
+                timerValue -= 1
+            } else {
+                timer.invalidate()
+                isTimerRunning = false
+            }
+        }
+    }
+    
+    private func determineComment(for caffeineAmount: Int) -> String {
+        if caffeineAmount == 0 {
+            return comments[0]
+        } else if caffeineAmount < 100 {
+            return comments[1]
+        } else if caffeineAmount < 150 {
+            return comments[2]
+        } else {
+            return comments[3]
+        }
     }
 }
 
@@ -107,37 +158,56 @@ struct RoundedRectangleWaveView: View {
     
     @State private var waveOffset = Angle(degrees: 0)
     let percent: Int
+    @Binding var isFlipped: Bool
+    @Binding var timerValue: TimeInterval
+    @Binding var isTimerRunning: Bool
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 150.0)
-                .fill(Color.clear) // 배경색 투명
-                .overlay(
-                    Wave(
-                        offset: Angle(degrees: self.waveOffset.degrees),
-                        percent: Double(percent) / 100
+            if isFlipped {
+                VStack {
+                    Text("카페인을\n태우기 위해 필요한 시간")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 17))
+                        .padding(.bottom, 10)
+                    Text(timeString(from: timerValue))
+                        .font(.system(size: 34).bold())
+                        .foregroundColor(Color("타이머색"))
+                        .transition(.flip)
+                    Spacer()
+                }
+            } else {
+                RoundedRectangle(cornerRadius: 150.0)
+                    .fill(Color.clear)
+                    .overlay(
+                        Wave(
+                            offset: Angle(degrees: self.waveOffset.degrees),
+                            percent: Double(percent) / 100
+                        )
+                        .fill(waveColor(for: percent))
+                        .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
                     )
-                    .fill(waveColor(for: percent))
-                    .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
-                )
-                .frame(width: 116, height: 90) // 프레임 크기를 설정
-            //연한 원
-            RoundedRectangle(cornerRadius: 150.0)
-                .fill(Color.clear) // 배경색 투명
-                .overlay(
-                    Wave(
-                        offset: Angle(degrees: self.waveOffset.degrees),
-                        percent: Double(percent) / 100
+                    .frame(width: 116, height: 90)
+                    .transition(.flip)
+                
+                RoundedRectangle(cornerRadius: 150.0)
+                    .fill(Color.clear)
+                    .overlay(
+                        Wave(
+                            offset: Angle(degrees: self.waveOffset.degrees),
+                            percent: Double(percent) / 100
+                        )
+                        .fill(waveColor(for: percent).opacity(0.5))
+                        .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
                     )
-                    .fill(waveColor(for: percent).opacity(0.5))
-                    .clipShape(.rect(bottomLeadingRadius: 58, bottomTrailingRadius: 58))
-                )
-                .frame(width: 116, height: 90) // 프레임 크기를 설정
-                .padding(.bottom, 15)
-            Image("cup")
-                .resizable()
-                .frame(width: 150, height: 100)
-                .padding(.leading, 24)
+                    .frame(width: 116, height: 90)
+                    .padding(.bottom, 15)
+                
+                Image("cup")
+                    .resizable()
+                    .frame(width: 150, height: 100)
+                    .padding(.leading, 24)
+            }
         }
         .aspectRatio(contentMode: .fit)
         .onAppear {
@@ -160,7 +230,24 @@ struct RoundedRectangleWaveView: View {
             return Color.clear // 기본값
         }
     }
+    private func timeString(from timeInterval: TimeInterval) -> String {
+        let hours = Int(timeInterval) / 3600
+        let minutes = (Int(timeInterval) % 3600) / 60
+        let seconds = Int(timeInterval) % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
 }
+
+extension AnyTransition {
+    static var flip: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: AnyTransition.scale.combined(with: .opacity),
+            removal: AnyTransition.scale.combined(with: .opacity)
+        )
+    }
+}
+
+
 
 // 중앙 정렬을 위한 커스텀 Modifier
 struct CenterModifier: ViewModifier {
@@ -176,6 +263,32 @@ struct CenterModifier: ViewModifier {
             }
     }
 }
+
+struct CircleView: View {
+    @Binding var injestedCaffeine: Int
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(Color.gray.opacity(0.3), lineWidth: 30)
+                //.shadow(color: .gray.opacity(0.6), radius: 20, y: 8)
+            
+            Circle()
+                .trim(from: 0, to: min(CGFloat(injestedCaffeine) / 200, 1.0))
+                .stroke(
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color.brown, Color("온보딩 버튼")]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ),
+                    style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round)
+                )
+                .rotationEffect(.degrees(-90))
+                .animation(.easeOut(duration: 1), value: injestedCaffeine)
+        }
+    }
+}
+
 
 struct CenterPreferenceKey: PreferenceKey {
     typealias Value = CGSize
