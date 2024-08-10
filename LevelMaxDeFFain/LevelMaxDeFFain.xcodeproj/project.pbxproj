@@ -15,10 +15,16 @@
 		02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */; };
 		02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD92C678C6F00A03706 /* LottieView.swift */; };
 		02ABBCDC2C678C7B00A03706 /* 원두.json in Resources */ = {isa = PBXBuildFile; fileRef = 02ABBCDB2C678C7B00A03706 /* 원두.json */; };
+<<<<<<< HEAD
 		02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCDE2C678CC300A03706 /* Lottie */; };
 		02ABBCE22C67B73900A03706 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCE12C67B73900A03706 /* TimerView.swift */; };
 		02ABBCE52C67B82700A03706 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCE42C67B82700A03706 /* KDCircularProgress */; };
+=======
+>>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
 		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
+		BD0D5DB72C67B88D0022D010 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB62C67B88D0022D010 /* MenuListView.swift */; };
+		BD0D5DB92C67B8970022D010 /* BeverageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D5DB82C67B8960022D010 /* BeverageModel.swift */; };
+		BD0EB4AB2C67C0950039F055 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BD0EB4AA2C67C0950039F055 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,8 @@
 		02ABBCDB2C678C7B00A03706 /* 원두.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "원두.json"; sourceTree = "<group>"; };
 		02ABBCE12C67B73900A03706 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		618274212C678F200074A435 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BD0D5DB62C67B88D0022D010 /* MenuListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
+		BD0D5DB82C67B8960022D010 /* BeverageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +48,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */,
 				02ABBCE52C67B82700A03706 /* KDCircularProgress in Frameworks */,
+=======
+				BD0EB4AB2C67C0950039F055 /* Lottie in Frameworks */,
+>>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +65,7 @@
 			children = (
 				02ABBCC62C678C4000A03706 /* LevelMaxDeFFain */,
 				02ABBCC52C678C4000A03706 /* Products */,
+				BD0EB4A92C67C0950039F055 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +84,8 @@
 				02ABBCC92C678C4000A03706 /* ContentView.swift */,
 				02ABBCD52C678C6300A03706 /* OnboardingWeek.swift */,
 				02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */,
+				BD0D5DB62C67B88D0022D010 /* MenuListView.swift */,
+				BD0D5DB82C67B8960022D010 /* BeverageModel.swift */,
 				02ABBCD92C678C6F00A03706 /* LottieView.swift */,
 				618274202C678EBD0074A435 /* Trudy */,
 				02ABBCE02C67B60A00A03706 /* Lavender */,
@@ -105,6 +120,13 @@
 			path = Trudy;
 			sourceTree = "<group>";
 		};
+		BD0EB4A92C67C0950039F055 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,8 +144,12 @@
 			);
 			name = LevelMaxDeFFain;
 			packageProductDependencies = (
+<<<<<<< HEAD
 				02ABBCDE2C678CC300A03706 /* Lottie */,
 				02ABBCE42C67B82700A03706 /* KDCircularProgress */,
+=======
+				BD0EB4AA2C67C0950039F055 /* Lottie */,
+>>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
 			);
 			productName = LevelMaxDeFFain;
 			productReference = 02ABBCC42C678C4000A03706 /* LevelMaxDeFFain.app */;
@@ -184,8 +210,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				02ABBCE22C67B73900A03706 /* TimerView.swift in Sources */,
+=======
+				BD0D5DB92C67B8970022D010 /* BeverageModel.swift in Sources */,
+>>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
 				02ABBCCA2C678C4000A03706 /* ContentView.swift in Sources */,
+				BD0D5DB72C67B88D0022D010 /* MenuListView.swift in Sources */,
 				618274222C678F200074A435 /* MainView.swift in Sources */,
 				02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */,
 				02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */,
@@ -417,7 +448,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		02ABBCDE2C678CC300A03706 /* Lottie */ = {
+		BD0EB4AA2C67C0950039F055 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02ABBCDD2C678CC300A03706 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;

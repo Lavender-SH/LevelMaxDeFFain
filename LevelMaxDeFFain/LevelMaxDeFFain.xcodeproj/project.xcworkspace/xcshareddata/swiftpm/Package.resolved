@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "originHash" : "b3127bd7c80eb20995bea0d79aeab82dc90665efc72354563ff82209f220979f",
+=======
+  "originHash" : "e8757176d825dc1dc72f6be839e2c23558ea436bb47ee996a5a1b12995ade456",
+>>>>>>> fb91444083f7ddb53d62a2b248dc33a5119a965b
   "pins" : [
     {
       "identity" : "kdcircularprogress",
