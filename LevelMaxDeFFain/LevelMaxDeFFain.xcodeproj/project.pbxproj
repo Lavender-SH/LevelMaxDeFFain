@@ -16,6 +16,7 @@
 		02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ABBCD92C678C6F00A03706 /* LottieView.swift */; };
 		02ABBCDC2C678C7B00A03706 /* 원두.json in Resources */ = {isa = PBXBuildFile; fileRef = 02ABBCDB2C678C7B00A03706 /* 원두.json */; };
 		02ABBCDF2C678CC300A03706 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 02ABBCDE2C678CC300A03706 /* Lottie */; };
+		618274222C678F200074A435 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618274212C678F200074A435 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingLottie.swift; sourceTree = "<group>"; };
 		02ABBCD92C678C6F00A03706 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		02ABBCDB2C678C7B00A03706 /* 원두.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "원두.json"; sourceTree = "<group>"; };
+		618274212C678F200074A435 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				02ABBCD52C678C6300A03706 /* OnboardingWeek.swift */,
 				02ABBCD72C678C6900A03706 /* OnboardingLottie.swift */,
 				02ABBCD92C678C6F00A03706 /* LottieView.swift */,
+				618274202C678EBD0074A435 /* Trudy */,
 				02ABBCCB2C678C4100A03706 /* Assets.xcassets */,
 				02ABBCDB2C678C7B00A03706 /* 원두.json */,
 				02ABBCCD2C678C4100A03706 /* Preview Content */,
@@ -79,6 +82,14 @@
 				02ABBCCE2C678C4100A03706 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		618274202C678EBD0074A435 /* Trudy */ = {
+			isa = PBXGroup;
+			children = (
+				618274212C678F200074A435 /* MainView.swift */,
+			);
+			path = Trudy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02ABBCCA2C678C4000A03706 /* ContentView.swift in Sources */,
+				618274222C678F200074A435 /* MainView.swift in Sources */,
 				02ABBCD82C678C6900A03706 /* OnboardingLottie.swift in Sources */,
 				02ABBCDA2C678C6F00A03706 /* LottieView.swift in Sources */,
 				02ABBCD62C678C6300A03706 /* OnboardingWeek.swift in Sources */,
