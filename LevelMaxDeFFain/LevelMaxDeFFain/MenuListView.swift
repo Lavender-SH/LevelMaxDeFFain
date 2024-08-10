@@ -15,7 +15,7 @@ struct MenuListView: View {
 
                 }, label: {
                     Label(
-                        title: { Text("메뉴 찾기")
+                        title: { Text("Find")
                             .font(.system(size: 17, weight: .semibold))},
                         icon: { Image(systemName: "magnifyingglass") }
                     )
@@ -133,6 +133,8 @@ struct MenuListView: View {
                                         ])
             })
         }
+        .background(Color(red: 0.98, green: 0.97, blue: 0.95))
+
     }
 
 
@@ -163,11 +165,17 @@ struct SheetView: View {
             .padding(.bottom, 27)
             HStack {
                 VStack {
-                    Text("샷")
-                        .font(.system(size: 17, weight: .semibold))
-                    Text("기본 2샷(150mg)")
-                        .font(.system(size: 12, weight: .semibold))
-                        .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.58))
+                    HStack() {
+                        Text("Shot")
+                            .font(.system(size: 17, weight: .semibold))
+                        Spacer()
+                    }
+                    HStack() {
+                        Text("Basic 2 shots (150mg)")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.58))
+                        Spacer()
+                    }
                 }
 
                 Spacer()
@@ -204,14 +212,14 @@ struct SheetView: View {
 
             }
             .padding(.bottom, 51)
-            Text("총 \(caffaine)mg")
+            Text("Sum: \(caffaine)mg")
                 .font(.system(size: 22, weight: .semibold))
                 .foregroundColor(Color(red: 0.35, green: 0.1, blue: 0.1))
 
             Button(action: {
 
             }, label: {
-                Text("완료")
+                Text("Complete")
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(.white)
                     .padding(.vertical, 19)
@@ -224,9 +232,9 @@ struct SheetView: View {
         .padding(.horizontal, 16)
         .alert(isPresented: $showAlert) { // Alert modifier
                     Alert(
-                        title: Text("주의"),
-                        message: Text("카페인 권장 섭취량을 초과합니다."),
-                        dismissButton: .default(Text("확인"))
+                        title: Text("Warning!"),
+                        message: Text("Exceed the recommended caffeine intake."),
+                        dismissButton: .default(Text("Check"))
                     )
         }
         .onAppear(perform: {
