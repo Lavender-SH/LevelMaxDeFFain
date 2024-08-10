@@ -11,7 +11,7 @@ struct MenuListView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-        var backButton : some View {  // <-- 👀 커스텀 버튼
+        var backButton : some View {
             Button{
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
