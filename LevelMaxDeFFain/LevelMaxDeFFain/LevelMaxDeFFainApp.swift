@@ -11,7 +11,8 @@ import SwiftUI
 struct LevelMaxDeFFainApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(weeks: 6)
+            ContentView()
+                .environmentObject(SharedDataModel())
         }
     }
 }

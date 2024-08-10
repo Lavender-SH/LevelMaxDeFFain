@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var dataModel: SharedDataModel
+    
     var body: some View {
         NavigationStack {
             VStack {

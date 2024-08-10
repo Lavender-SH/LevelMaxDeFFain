@@ -5,7 +5,13 @@
 //  Created by hanseoyoung on 8/10/24.
 //
 
-import Foundation
+import SwiftUI
+import Combine
+
+class SharedDataModel: ObservableObject {
+    @Published var ingestedCaffeine: Int = 0
+    @Published var selectedWeek: Int = 0
+}
 
 enum BeverageCategory: String, CaseIterable {
     case coffee = "Coffee"
