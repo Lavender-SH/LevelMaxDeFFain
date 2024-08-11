@@ -68,7 +68,7 @@ struct MainView: View {
                             }
                         }
                     
-                    Text(determineComment(for: injestedCaffeine))
+                    Text(determineComment(for: caffeineModel.ingestedCaffeine))
                         .foregroundColor(Color("온보딩 버튼"))
                         .font(.system(size: 17))
                         .padding(.bottom, 60)
