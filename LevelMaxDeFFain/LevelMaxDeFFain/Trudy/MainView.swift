@@ -21,7 +21,15 @@ struct MainView: View {
                     .padding(.bottom, 40)
                 
                 VStack {
-                    HStack{
+                    HStack(){
+                        NavigationLink(destination: HealthRateView(), label: {
+                            Image(systemName: "chart.bar.xaxis.ascending")
+                                .resizable()
+                                .frame(width: 25, height: 20)
+                                .foregroundStyle(Color.my581919)
+                                .padding(.bottom, 20)
+                                .padding(.leading, 10)
+                        })
                         Spacer()
                         Text("\(sharedData.selectedWeek) Weeks")
                             .foregroundStyle(Color.black)
