@@ -47,8 +47,7 @@ struct MainView: View {
                     
                     // 웨이브 애니메이션을 가운데에 위치시킴
                     RoundedRectangleWaveView(percent: $caffeineModel.ingestedCaffeine, isFlipped: $isFlipped, timerValue: $timerValue, isTimerRunning: $isTimerRunning)
-                        .frame(width: 200, height: 150) // 프레임 크기 조정
-                        .padding(.vertical, 20)
+                        .padding(.vertical, 10)
                         .background(Color.clear) // 배경색을 투명하게 설정하여 중앙 정렬
                     //                .alignmentGuide(.center) { d in d[.center] } // 중앙 정렬
                         .modifier(CenterModifier()) // 중앙 정렬을 위한 커스텀 Modifier 추가
@@ -64,7 +63,7 @@ struct MainView: View {
                     Text(determineComment(for: injestedCaffeine))
                         .foregroundColor(Color("온보딩 버튼"))
                         .font(.system(size: 17))
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 60)
                     
                     NavigationLink(destination: MenuListView()) {
                         Text("Recording Caffeine")
@@ -75,6 +74,7 @@ struct MainView: View {
                             .background(Color("온보딩 버튼"))
                             .clipShape(RoundedRectangle(cornerRadius: 30))
                             .padding()
+                            .padding(.bottom, 20)
                     }
                     
                     // 퍼센트 조정 가능한 슬라이더 조정
@@ -306,3 +306,7 @@ struct WaveAnimationView_Previews: PreviewProvider {
         MainView(weeks: 3, injestedCaffeine: 5)
     }
 }
+
+//#Preview {
+//    MainView(weeks: 3, injestedCaffeine: 5)
+//}
