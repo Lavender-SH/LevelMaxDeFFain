@@ -14,8 +14,17 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                Text("DeFFein")
-                    .font(.title2.bold())
+                Image("logo")
+                    .resizable()
+                    .frame(width: 170, height: 125)
+                    .padding(.bottom,30)
+                Text("Application to help pregnant ")
+                    .font(.system(size: 17))
+                    .foregroundStyle(Color.my581919)
+                Text("women control caffeine intake")
+                    .font(.system(size: 17))
+                    .foregroundStyle(Color.my581919)
+                
                 Spacer()
 
                 NavigationLink(destination: OnboardingWeek()) {
