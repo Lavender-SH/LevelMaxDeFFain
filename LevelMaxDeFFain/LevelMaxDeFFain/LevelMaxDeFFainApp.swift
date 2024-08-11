@@ -12,6 +12,7 @@ struct LevelMaxDeFFainApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(SharedDataModel())
         }
     }
 }

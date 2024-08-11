@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct OnboardingWeek: View {
-    @State private var selectedWeek: Int = 1
-    @State private var isPickerVisible: Bool = false
+    @EnvironmentObject var dataModel: SharedDataModel
+    @State var isPickerVisible: Bool = false
     
     var body: some View {
         VStack {
@@ -17,14 +17,14 @@ struct OnboardingWeek: View {
             HStack {
                 VStack {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("임신 주수")
+                        Text("Gestational Age")
                             .font(.largeTitle.bold())
                             .foregroundStyle(Color("온보딩 버튼"))
-                        Text("현재 임신 몇 주 차이신가요?")
+                        Text("How far along are you?")
                             .padding(.top, 5)
                             .foregroundStyle(Color("온보딩 버튼"))
                         HStack {
-                            Text(String(format: "%02d", selectedWeek))
+                            Text(String(format: "%02d", dataModel.selectedWeek))
                                 .font(.system(size: 60, weight: .bold))
                                 .foregroundStyle(Color("온보딩 버튼"))
                                 .onTapGesture {
@@ -32,7 +32,7 @@ struct OnboardingWeek: View {
                                         isPickerVisible.toggle()
                                     }
                                 }
-                            Text("주차")
+                            Text("Weeks")
                                 .padding(.top, 25)
                                 .foregroundStyle(Color("온보딩 버튼"))
                         }
@@ -45,7 +45,7 @@ struct OnboardingWeek: View {
             
             // Picker가 선택된 상태일 때만 표시
             if isPickerVisible {
-                Picker("Select Week", selection: $selectedWeek) {
+                Picker("Select Week", selection: $dataModel.selectedWeek) {
                     ForEach(1..<41) { week in
                         Text("\(week)").tag(week)
                     }
@@ -57,8 +57,8 @@ struct OnboardingWeek: View {
             }
             
             Spacer()
-            NavigationLink(destination: OnboardingLottie(selectedWeek: selectedWeek)) {
-                Text("입력 완료")
+            NavigationLink(destination: OnboardingLottie(selectedWeek: dataModel.selectedWeek)) {
+                Text("Complete")
                     .padding()
                     .font(.system(size: 20).bold())
                     .frame(width: 300, height: 50)
@@ -74,7 +74,7 @@ struct OnboardingWeek: View {
     }
 }
 
-#Preview {
-    OnboardingWeek()
-}
+//#Preview {
+//    //OnboardingWeek(selectedWeek: selectedWeek.selectedWeek)
+//}
 

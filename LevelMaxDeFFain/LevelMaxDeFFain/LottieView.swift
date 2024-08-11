@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Lottie
 import SwiftUI
+import Lottie
 
 class LottieAnimationViewWrapper: UIView {
     
